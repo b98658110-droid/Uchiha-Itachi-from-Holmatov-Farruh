@@ -1040,8 +1040,9 @@ body {
     transition: 0.3s;
 }
 
-/* ===== МОБИЛКА / ПЛАНШЕТ ===== */
-@media (max-width: 768px) {
+/* ===== ВСЕ ТЕЛЕФОНЫ + ПЛАНШЕТЫ ===== */
+@media (max-width: 1024px) {
+
     .burger {
         display: flex;
     }
@@ -1058,13 +1059,17 @@ body {
         overflow: hidden;
         transition: max-height 0.4s ease;
         border-top: 3px solid var(--blood-red);
+        z-index: 1000;
     }
 
     nav ul.active {
-        max-height: 500px;
+        max-height: 600px;
     }
 
     nav li {
         margin: 15px 0;
     }
 }
+
+}
+
