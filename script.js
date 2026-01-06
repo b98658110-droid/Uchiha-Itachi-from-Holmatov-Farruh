@@ -200,4 +200,13 @@ document.addEventListener('DOMContentLoaded', function() {
     ║                                                   ║
     ╚═══════════════════════════════════════════════════╝
     `, 'color: #8B0000; font-weight: bold; font-size: 12px;');
+
+    const burger = document.getElementById("burger");
+    const navMenu = document.getElementById("nav-menu");
+
+    burger.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+    });
+
+
 });
