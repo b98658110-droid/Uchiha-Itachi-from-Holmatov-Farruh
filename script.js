@@ -203,10 +203,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const burger = document.getElementById("burger");
     const navMenu = document.getElementById("nav-menu");
-
-    burger.addEventListener("click", () => {
+    
+    burger.addEventListener("pointerdown", () => {
         navMenu.classList.toggle("active");
     });
 
 
+
 });
+
