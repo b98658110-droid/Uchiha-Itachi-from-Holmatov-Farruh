@@ -1,0 +1,1018 @@
+/* Основные стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blood-red: #8B0000;
+    --dark-red: #5A0000;
+    --light-red: #FF0000;
+    --black: #0A0A0A;
+    --gray: #1A1A1A;
+    --white: #F0F0F0;
+    --sharingan-red: #FF2400;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--black);
+    color: var(--white);
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Кровавые капли фона */
+.blood-drops {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+.blood-drops::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 10% 20%, var(--blood-red) 2px, transparent 3px),
+        radial-gradient(circle at 30% 40%, var(--blood-red) 1px, transparent 2px),
+        radial-gradient(circle at 50% 70%, var(--blood-red) 3px, transparent 4px),
+        radial-gradient(circle at 70% 10%, var(--blood-red) 2px, transparent 3px),
+        radial-gradient(circle at 90% 60%, var(--blood-red) 1px, transparent 2px);
+    background-size: 300px 300px, 400px 400px, 500px 500px, 600px 600px, 700px 700px;
+    animation: bloodDrip 20s infinite linear;
+}
+
+@keyframes bloodDrip {
+    0% { background-position: 0 0, 0 0, 0 0, 0 0, 0 0; }
+    100% { background-position: 300px 300px, 400px 400px, 500px 500px, 600px 600px, 700px 700px; }
+}
+
+/* Шаринган анимация фона */
+.sharingan-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -2;
+    opacity: 0.1;
+}
+
+.sharingan {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid var(--sharingan-red);
+    animation: spin 20s linear infinite;
+}
+
+.sharingan-1 {
+    width: 100px;
+    height: 100px;
+    top: 10%;
+    left: 10%;
+}
+
+.sharingan-2 {
+    width: 150px;
+    height: 150px;
+    top: 60%;
+    right: 15%;
+    animation-delay: -5s;
+}
+
+.sharingan-3 {
+    width: 80px;
+    height: 80px;
+    bottom: 20%;
+    left: 20%;
+    animation-delay: -10s;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Контейнер */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Шапка */
+header {
+    background-color: rgba(10, 10, 10, 0.95);
+    border-bottom: 3px solid var(--blood-red);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 0;
+}
+
+.logo h1 {
+    font-family: 'Cinzel', serif;
+    color: var(--blood-red);
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+    margin: 0 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.sharingan-icon {
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, var(--sharingan-red) 30%, var(--dark-red) 70%);
+    border-radius: 50%;
+    position: relative;
+    animation: pulse 2s infinite;
+}
+
+.sharingan-icon::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.sharingan-icon::after {
+    content: "● ● ●";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-size: 8px;
+    letter-spacing: 3px;
+}
+
+@keyframes pulse {
+    0%, 100% { box-shadow: 0 0 10px var(--sharingan-red); }
+    50% { box-shadow: 0 0 20px var(--light-red); }
+}
+
+/* Навигация */
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 10px 0;
+    border-top: 1px solid rgba(139, 0, 0, 0.3);
+}
+
+nav li {
+    margin: 0 15px;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+nav a i {
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+nav a:hover, nav a.active {
+    background-color: var(--blood-red);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(139, 0, 0, 0.4);
+}
+
+/* Герой секция */
+.hero {
+    padding: 80px 0;
+    background: linear-gradient(to bottom, rgba(90, 0, 0, 0.7), rgba(10, 10, 10, 0.9));
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 300px;
+    padding-right: 40px;
+}
+
+.hero-image {
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+}
+
+.blood-text {
+    color: var(--blood-red);
+    text-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+    font-size: 3.5rem;
+    font-family: 'Cinzel', serif;
+    display: block;
+    margin-bottom: 20px;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px var(--blood-red); }
+    to { text-shadow: 0 0 20px var(--light-red), 0 0 30px var(--light-red); }
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin-bottom: 30px;
+    color: #CCC;
+}
+
+.description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--blood-red);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+}
+
+.btn:hover {
+    background-color: var(--light-red);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(139, 0, 0, 0.4);
+}
+
+.image-frame {
+    position: relative;
+    border: 5px solid var(--blood-red);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(139, 0, 0, 0.6);
+    transform: perspective(1000px) rotateY(-5deg);
+    transition: transform 0.5s ease;
+}
+
+.image-frame:hover {
+    transform: perspective(1000px) rotateY(0deg);
+}
+
+.image-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.blood-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 60%, rgba(139, 0, 0, 0.3) 100%);
+    pointer-events: none;
+}
+
+/* Секции */
+.section {
+    padding: 80px 0;
+    position: relative;
+}
+
+.section.dark {
+    background-color: rgba(26, 26, 26, 0.9);
+    border-top: 3px solid var(--blood-red);
+    border-bottom: 3px solid var(--blood-red);
+}
+
+.section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    color: var(--blood-red);
+    text-align: center;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+.section-title i {
+    margin-right: 15px;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: var(--blood-red);
+}
+
+/* Биография */
+.bio-content {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.bio-image, .bio-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.bio-image {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.bio-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.blood-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 60%, rgba(139, 0, 0, 0.4) 100%);
+}
+
+.bio-text h3 {
+    font-size: 2rem;
+    color: var(--blood-red);
+    margin-bottom: 20px;
+    font-family: 'Cinzel', serif;
+}
+
+.bio-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.fact {
+    display: flex;
+    align-items: center;
+    background-color: rgba(139, 0, 0, 0.2);
+    padding: 10px 15px;
+    border-radius: 5px;
+    border-left: 3px solid var(--blood-red);
+}
+
+.blood-icon {
+    color: var(--blood-red);
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+/* Шаринган типы */
+.sharingan-types {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.type {
+    flex: 1;
+    min-width: 250px;
+    max-width: 350px;
+    text-align: center;
+    padding: 30px 20px;
+    background-color: rgba(26, 26, 26, 0.8);
+    border-radius: 10px;
+    border: 2px solid rgba(139, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.type:hover {
+    transform: translateY(-10px);
+    border-color: var(--blood-red);
+    box-shadow: 0 10px 20px rgba(139, 0, 0, 0.3);
+}
+
+.sharingan-display {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    position: relative;
+    background: radial-gradient(circle, var(--black) 30%, var(--gray) 100%);
+    border: 5px solid var(--blood-red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sharingan-base .tomoe {
+    color: var(--blood-red);
+    font-size: 2rem;
+    letter-spacing: 20px;
+}
+
+.sharingan-mangekyo .mangekyo-design {
+    width: 80%;
+    height: 80%;
+    background-color: var(--blood-red);
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.sharingan-eternal .eternal-design {
+    width: 80%;
+    height: 80%;
+    background-color: var(--blood-red);
+    clip-path: polygon(50% 0%, 70% 20%, 100% 20%, 100% 50%, 80% 50%, 80% 100%, 50% 80%, 20% 100%, 20% 50%, 0% 50%, 0% 20%, 30% 20%);
+}
+
+.type h3 {
+    color: var(--blood-red);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.type p {
+    line-height: 1.5;
+}
+
+/* Техники */
+.jutsu-list {
+    background-color: rgba(10, 10, 10, 0.8);
+    padding: 40px;
+    border-radius: 10px;
+    border: 2px solid var(--blood-red);
+}
+
+.jutsu-list h3 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: var(--white);
+}
+
+.jutsus {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.jutsu {
+    flex: 1;
+    min-width: 200px;
+    max-width: 250px;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(139, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.jutsu:hover {
+    background-color: rgba(139, 0, 0, 0.3);
+    transform: scale(1.05);
+}
+
+.jutsu i {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.jutsu h4 {
+    color: var(--blood-red);
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+/* Способности */
+.abilities-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.ability {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    padding: 30px;
+    background-color: rgba(139, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid rgba(139, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.ability:hover {
+    transform: translateY(-10px);
+    border-color: var(--blood-red);
+    box-shadow: 0 10px 20px rgba(139, 0, 0, 0.3);
+}
+
+.ability-icon {
+    width: 70px;
+    height: 70px;
+    background-color: var(--blood-red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.ability-icon i {
+    font-size: 2rem;
+    color: white;
+}
+
+.ability h3 {
+    color: var(--blood-red);
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.ability p {
+    line-height: 1.5;
+}
+
+/* Галерея */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.gallery-item {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    height: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    border: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+    border-color: var(--blood-red);
+    transform: scale(1.05);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to top, rgba(139, 0, 0, 0.9), transparent);
+    padding: 20px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+.gallery-overlay p {
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Ворон секция */
+.crow-info {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.crow-text, .crow-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.crow-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.crow-stats {
+    margin-top: 30px;
+}
+
+.stat {
+    margin-bottom: 20px;
+}
+
+.stat h4 {
+    color: var(--blood-red);
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.stat-bar {
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.stat-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--dark-red), var(--blood-red));
+    border-radius: 5px;
+    animation: fillBar 2s ease-out;
+}
+
+@keyframes fillBar {
+    from { width: 0%; }
+    to { width: var(--target-width); }
+}
+
+.crow-image {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.crow-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.crow-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(139, 0, 0, 0.4), transparent);
+}
+
+/* Футер */
+footer {
+    background-color: var(--black);
+    border-top: 3px solid var(--blood-red);
+    padding: 50px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.footer-logo {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+
+.footer-logo .sharingan-icon.small {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 15px;
+}
+
+.footer-logo h3 {
+    color: var(--blood-red);
+    margin-bottom: 10px;
+    font-family: 'Cinzel', serif;
+}
+
+.footer-quote {
+    flex: 2;
+    min-width: 300px;
+    padding: 0 20px;
+    border-left: 2px solid var(--blood-red);
+    border-right: 2px solid var(--blood-red);
+}
+
+.quote {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.author {
+    color: var(--blood-red);
+    font-weight: bold;
+    text-align: right;
+}
+
+.footer-links {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-links h4 {
+    color: var(--blood-red);
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.footer-links a:hover {
+    color: var(--blood-red);
+}
+
+.footer-links i {
+    margin-right: 10px;
+    color: var(--blood-red);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(139, 0, 0, 0.3);
+    position: relative;
+}
+
+.blood-drip {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 10px;
+    background-color: var(--blood-red);
+    animation: drip 2s infinite;
+}
+
+@keyframes drip {
+    0%, 100% { height: 10px; }
+    50% { height: 20px; }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .logo h1 {
+        font-size: 1.8rem;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+    }
+    
+    nav li {
+        margin: 5px;
+    }
+    
+    .hero-content {
+        flex-direction: column;
+    }
+    
+    .hero-text {
+        padding-right: 0;
+        margin-bottom: 40px;
+    }
+    
+    .blood-text {
+        font-size: 2.5rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .footer-quote {
+        border-left: none;
+        border-right: none;
+        border-top: 2px solid var(--blood-red);
+        border-bottom: 2px solid var(--blood-red);
+        padding: 20px 0;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Эффект крови при клике */
+.click-blood {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background-color: var(--blood-red);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    animation: bloodSplash 1s forwards;
+}
+
+@keyframes bloodSplash {
+    0% {
+        transform: scale(0.5);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/* Прокрутка */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--black);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--blood-red);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--light-red);
+}
+
+/* Анимации загрузки */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+body {
+    animation: fadeIn 1s ease;
+}
+
+/* Добавить эти стили для изображений шарингана */
+.sharingan-display {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    position: relative;
+    background: radial-gradient(circle, var(--black) 30%, var(--gray) 100%);
+    border: 5px solid var(--blood-red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.sharingan-img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    animation: rotateSharingan 20s linear infinite;
+}
+
+@keyframes rotateSharingan {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Удалить старые стили для шарингана */
+.sharingan-base .tomoe,
+.sharingan-mangekyo .mangekyo-design,
+.sharingan-eternal .eternal-design {
+    display: none;
+}
+
+/* Улучшение для изображений в галерее */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Для изображения Итачи в герое */
+#main-itachi {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Для изображения в биографии */
+.bio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Для изображения ворона */
+.crow-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

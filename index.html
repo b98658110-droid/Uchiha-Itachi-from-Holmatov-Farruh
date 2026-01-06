@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Шаринган Итачи Учиха - Акацуки</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="images/icon-sharingan.png">
+</head>
+<body>
+    <!-- Кровавые капли фона -->
+    <div class="blood-drops"></div>
+    
+    <!-- Шаринган анимация фона -->
+    <div class="sharingan-bg">
+        <div class="sharingan sharingan-1"></div>
+        <div class="sharingan sharingan-2"></div>
+        <div class="sharingan sharingan-3"></div>
+    </div>
+
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="sharingan-icon"></div>
+                <h1>ИТАЧИ УЧИХА</h1>
+                <div class="sharingan-icon"></div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active"><i class="fas fa-home"></i> Главная</a></li>
+                    <li><a href="#about"><i class="fas fa-user-ninja"></i> Биография</a></li>
+                    <li><a href="#sharingan"><i class="fas fa-eye"></i> Шаринган</a></li>
+                    <li><a href="#abilities"><i class="fas fa-fire"></i> Способности</a></li>
+                    <li><a href="#gallery"><i class="fas fa-images"></i> Галерея</a></li>
+                    <li><a href="#contact"><i class="fas fa-crow"></i> Ворон</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h2><span class="blood-text">ОТРЕЧЬСЯ ОТ НЕНАВИСТИ</span></h2>
+                        <p class="subtitle">"Иногда нужно совершить зло, чтобы творить добро"</p>
+                        <p class="description">Итачи Учиха - гений клана Учиха, член Акацуки, обладатель Мангекё Шаринган. Пожертвовал всем ради мира в деревне.</p>
+                        <a href="#about" class="btn">Узнать больше</a>
+                    </div>
+                    <div class="hero-image">
+                        <div class="image-frame">
+                            <img src="images/itachi-main.jpg" alt="Itachi Uchiha" id="main-itachi">
+                            <div class="blood-effect"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section dark">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-scroll"></i> БИОГРАФИЯ ИТАЧИ</h2>
+                <div class="bio-content">
+                    <div class="bio-image">
+                        <img src="images/itachi-childhood.jpg" alt="Itachi Childhood">
+                        <div class="blood-overlay"></div>
+                    </div>
+                    <div class="bio-text">
+                        <h3>Жизнь и Жертва</h3>
+                        <p><strong>Итачи Учиха</strong> родился в клане Учиха в Деревне Скрытого Листа. С раннего детства проявлял невероятные способности, став гением ниндзя уже в 7 лет.</p>
+                        <p>В 13 лет он стал капитаном отряда АНБУ, самого молодого в истории Конохи.</p>
+                        <p>После попытки переворота клана Учиха, Итачи получил приказ уничтожить весь свой клан, чтобы предотвратить гражданскую войну. Единственным, кого он пощадил, был его младший брат Саске.</p>
+                        <div class="facts">
+                            <div class="fact">
+                                <i class="fas fa-birthday-cake blood-icon"></i>
+                                <span><strong>Рождение:</strong> 9 июня</span>
+                            </div>
+                            <div class="fact">
+                                <i class="fas fa-skull-crossbones blood-icon"></i>
+                                <span><strong>Статус:</strong> Погибший</span>
+                            </div>
+                            <div class="fact">
+                                <i class="fas fa-user-secret blood-icon"></i>
+                                <span><strong>Ранг:</strong> Нукенин S-ранга</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sharingan" class="section">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-eye"></i> МАНГЭКЁ ШАРИНГАН</h2>
+                <div class="sharingan-types">
+                    <div class="type">
+                        <div class="sharingan-display">
+                            <img src="images/sharingan-base.png" alt="Обычный Шаринган" class="sharingan-img">
+                        </div>
+                        <h3>Томоэ Шаринган</h3>
+                        <p>Базовая форма Шарингана с тремя томоэ. Позволяет копировать техники, видеть чакру и предсказывать движения.</p>
+                    </div>
+                    <div class="type">
+                        <div class="sharingan-display">
+                            <img src="images/sharingan-mangekyo.png" alt="Мангекё Шаринган" class="sharingan-img">
+                        </div>
+                        <h3>Мангекё Шаринган</h3>
+                        <p>Пробуждается после смерти близкого человека. Даёт доступ к уникальным техникам: Цукуёми, Аматэрасу, Сусаноо.</p>
+                    </div>
+                    <div class="type">
+                        <div class="sharingan-display">
+                            <img src="images/sharingan-eternal.png" alt="Вечный Мангекё" class="sharingan-img">
+                        </div>
+                        <h3>Вечный Мангекё</h3>
+                        <p>При移植е братских глаз. Устраняет слепоту от использования Мангекё и усиливает способности.</p>
+                    </div>
+                </div>
+                
+                <div class="jutsu-list">
+                    <h3>Техники Шарингана Итачи</h3>
+                    <div class="jutsus">
+                        <div class="jutsu">
+                            <i class="fas fa-moon blood-icon"></i>
+                            <h4>Цукуёми</h4>
+                            <p>Иллюзия, которая искажает восприятие времени. Внутри иллюзии Итачи контролирует всё.</p>
+                        </div>
+                        <div class="jutsu">
+                            <i class="fas fa-fire blood-icon"></i>
+                            <h4>Аматэрасу</h4>
+                            <p>Чёрное пламя, которое горит 7 дней и 7 ночей, невозможно потушить.</p>
+                        </div>
+                        <div class="jutsu">
+                            <i class="fas fa-ghost blood-icon"></i>
+                            <h4>Сусаноо</h4>
+                            <p>Гигантский воин из чакры, обеспечивающий абсолютную защиту и атаку.</p>
+                        </div>
+                        <div class="jutsu">
+                            <i class="fas fa-crow blood-icon"></i>
+                            <h4>Котоамацуками</h4>
+                            <p>Гени jutsu, который изменяет волю противника без его осознания.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="abilities" class="section dark">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-fist-raised"></i> СПОСОБНОСТИ И БОЕВЫЕ ТЕХНИКИ</h2>
+                <div class="abilities-grid">
+                    <div class="ability">
+                        <div class="ability-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Интеллект</h3>
+                        <p>Итачи обладает гениальным интеллектом уровня Каге. Он может анализировать и разрабатывать стратегии в считанные секунды.</p>
+                    </div>
+                    <div class="ability">
+                        <div class="ability-icon">
+                            <i class="fas fa-hand-sparkles"></i>
+                        </div>
+                        <h3>Печати</h3>
+                        <p>Мастер печатей, способный выполнять техники одной рукой. Знает множество запретных и древних jutsu.</p>
+                    </div>
+                    <div class="ability">
+                        <div class="ability-icon">
+                            <i class="fas fa-user-injured"></i>
+                        </div>
+                        <h3>Гени jutsu</h3>
+                        <p>Владеет мощными иллюзиями, включая Идзанами - техникой, которая может переписывать судьбу.</p>
+                    </div>
+                    <div class="ability">
+                        <div class="ability-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Кунаи и Сюрикены</h3>
+                        <p>Мастер метательного оружия. Его техника сюрикенов считается лучшей в клане Учиха.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="section">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-images"></i> ГАЛЕРЕЯ ИТАЧИ</h2>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="images/itachi-akatsuki.jpg" alt="Itachi Akatsuki">
+                        <div class="gallery-overlay">
+                            <p>Итачи в плаще Акацуки</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/itachi-main.jpg" alt="Итачи портрет">
+                        <div class="gallery-overlay">
+                            <p>Портрет Итачи</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/itachi-vs-sasuke.jpg" alt="Itachi vs Sasuke">
+                        <div class="gallery-overlay">
+                            <p>Бой против Саске</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="images/itachi-crow.jpg" alt="Crow Summon">
+                        <div class="gallery-overlay">
+                            <p>Призыв воронов</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section dark">
+            <div class="container">
+                <h2 class="section-title"><i class="fas fa-crow"></i> ВОРОН ИТАЧИ</h2>
+                <div class="crow-info">
+                    <div class="crow-text">
+                        <p>Вороны - животные-партнёры Итачи. Он использует их в бою, для связи и как часть своих иллюзий.</p>
+                        <p>После смерти Итачи, его сознание продолжило жить внутри ворона, которого он оставил Наруто.</p>
+                        <p>Техника <strong>"Котоамацуками"</strong> была запечатана в этом вороне и активировалась против Кабуто.</p>
+                        <div class="crow-stats">
+                            <div class="stat">
+                                <h4>Количество воронов</h4>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="width: 90%;"></div>
+                                </div>
+                                <span>Тысячи</span>
+                            </div>
+                            <div class="stat">
+                                <h4>Сила иллюзии через воронов</h4>
+                                <div class="stat-bar">
+                                    <div class="stat-fill" style="width: 95%;"></div>
+                                </div>
+                                <span>Максимальная</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="crow-image">
+                        <img src="images/crow.jpg" alt="Crow">
+                        <div class="crow-overlay"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="sharingan-icon small"></div>
+                    <h3>УЧИХА ИТАЧИ</h3>
+                    <p>Сайт посвящен величайшему шиноби</p>
+                </div>
+                <div class="footer-quote">
+                    <p class="quote">"Тот, кто не может признать свою истинную сущность, обречён на неудачу."</p>
+                    <p class="author">— Итачи Учиха</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Наруто Вселенная</h4>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-user-ninja"></i> Клан Учиха</a></li>
+                        <li><a href="#"><i class="fas fa-cloud-moon"></i> Акацуки</a></li>
+                        <li><a href="#"><i class="fas fa-leaf"></i> Деревня Скрытого Листа</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Шаринган Итачи. Все права защищены. Сайт создан фанатом для фанатов.</p>
+                <div class="blood-drip"></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
