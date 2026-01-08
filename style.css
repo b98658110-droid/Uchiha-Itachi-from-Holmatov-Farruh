@@ -1046,14 +1046,6 @@ body {
 /* ===== МОБИЛКА И ПЛАНШЕТ ===== */
 @media (max-width: 1024px) {
 
-    nav {
-        display: block;
-    }
-
-    .burger {
-        display: flex;
-    }
-
     nav ul {
         position: fixed;
         top: 0;
@@ -1063,32 +1055,30 @@ body {
         height: 100vh;
         background: rgba(10, 10, 10, 0.98);
 
+        display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 25px;
 
-        transform: translateX(100%);        /* 🔥 ВАЖНО */
-        transition: transform 0.35s ease;
+        transform: translateX(110%);
+        visibility: hidden;
+        pointer-events: none;
 
-        pointer-events: none;               /* 🔥 НЕ мешает свайпу */
+        transition: transform 0.35s ease, visibility 0s linear 0.35s;
         z-index: 1050;
         border-left: 3px solid var(--blood-red);
     }
 
     nav ul.active {
         transform: translateX(0);
-        pointer-events: auto;               /* 🔥 кликается */
-    }
+        visibility: visible;
+        pointer-events: auto;
 
-    nav li {
-        margin: 0;
-    }
-
-    nav a {
-        font-size: 1.3rem;
+        transition: transform 0.35s ease;
     }
 }
+
 
 /* ===== АНИМАЦИЯ БУРГЕРА ===== */
 .burger.open span:nth-child(1) {
@@ -1104,3 +1094,4 @@ body {
 }
 
  
+
