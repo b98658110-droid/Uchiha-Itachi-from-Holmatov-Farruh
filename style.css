@@ -22,6 +22,7 @@ body {
     overflow-x: hidden;
     position: relative;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 /* Кровавые капли фона */
@@ -1025,32 +1026,12 @@ body {
     background: none;
     border: none;
     cursor: pointer;
-    position: absolute;
-    right: 20px;
-    top: 30px;
-    z-index: 1100;
-}
 
-.burger span {
-    width: 30px;
-    height: 3px;
-    background: var(--blood-red);
-    border-radius: 2px;
-    transition: 0.3s;
-}
-
-/* ===== БУРГЕР ===== */
-.burger {
-    display: none;
-    flex-direction: column;
-    gap: 6px;
-    background: none;
-    border: none;
-    cursor: pointer;
     position: absolute;
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
+
     z-index: 1100;
 }
 
@@ -1065,7 +1046,6 @@ body {
 /* ===== МОБИЛКА И ПЛАНШЕТ ===== */
 @media (max-width: 1024px) {
 
-    /* nav НЕ прячем */
     nav {
         display: block;
     }
@@ -1077,21 +1057,28 @@ body {
     nav ul {
         position: fixed;
         top: 0;
-        right: -100%;
+        right: 0;
+
         width: 260px;
         height: 100vh;
         background: rgba(10, 10, 10, 0.98);
+
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 25px;
-        transition: right 0.4s ease;
+
+        transform: translateX(100%);        /* 🔥 ВАЖНО */
+        transition: transform 0.35s ease;
+
+        pointer-events: none;               /* 🔥 НЕ мешает свайпу */
         z-index: 1050;
         border-left: 3px solid var(--blood-red);
     }
 
     nav ul.active {
-        right: 0;
+        transform: translateX(0);
+        pointer-events: auto;               /* 🔥 кликается */
     }
 
     nav li {
@@ -1116,15 +1103,4 @@ body {
     transform: rotate(-45deg) translate(7px, -7px);
 }
 
-
-.burger.open span:nth-child(1) {
-    transform: rotate(45deg) translate(6px, 6px);
-}
-
-.burger.open span:nth-child(2) {
-    opacity: 0;
-}
-
-.burger.open span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
-}
+ 
