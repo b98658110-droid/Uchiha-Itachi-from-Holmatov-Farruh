@@ -1015,7 +1015,6 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-
 }
 
 /* ===== БУРГЕР ===== */
@@ -1040,9 +1039,8 @@ body {
     transition: 0.3s;
 }
 
-/* ===== ВСЕ ТЕЛЕФОНЫ + ПЛАНШЕТЫ ===== */
-@media (max-width: 1024px) {
-
+/* ===== МОБИЛКА / ПЛАНШЕТ ===== */
+@media (max-width: 768px) {
     .burger {
         display: flex;
     }
@@ -1059,11 +1057,10 @@ body {
         overflow: hidden;
         transition: max-height 0.4s ease;
         border-top: 3px solid var(--blood-red);
-        z-index: 1000;
     }
 
     nav ul.active {
-        max-height: 600px;
+        max-height: 500px;
     }
 
     nav li {
@@ -1071,5 +1068,57 @@ body {
     }
 }
 
+/* ===== ПЛАНШЕТ И МЕНЬШЕ (ТОЛЬКО БУРГЕР) ===== */
+@media (max-width: 1024px) {
+
+    /* Прячем стандартную навигацию */
+    nav {
+        display: none;
+    }
+
+    /* Показываем бургер */
+    .burger {
+        display: flex;
+        position: absolute;
+        right: 25px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    /* Выезжающее меню */
+    nav ul {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 260px;
+        height: 100vh;
+        background: rgba(10, 10, 10, 0.98);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 25px;
+        transition: right 0.4s ease;
+        z-index: 1050;
+        border-left: 3px solid var(--blood-red);
+    }
+
+    nav ul.active {
+        right: 0;
+    }
+
+    nav a {
+        font-size: 1.3rem;
+    }
 }
 
+.burger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.burger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
