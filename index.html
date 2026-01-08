@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Cinzel:wght@700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/jpg" href="images/itachi-main.jpg">
 </head>
 <body>
     <!-- Кровавые капли фона -->
@@ -24,12 +23,12 @@
         <div class="container">
             <div class="logo">
                 <div class="sharingan-icon"></div>
-               <h1>ИТАЧИ УЧИХА</h1>
-               <div class="sharingan-icon"></div>
-           </div>
-        
-            <nav>
-                <ul id="nav-menu">
+                <h1>ИТАЧИ УЧИХА</h1>
+                <div class="sharingan-icon"></div>
+            </div>
+            <!-- Навигация только для десктопа -->
+            <nav class="desktop-nav">
+                <ul>
                     <li><a href="#home" class="active"><i class="fas fa-home"></i> Главная</a></li>
                     <li><a href="#about"><i class="fas fa-user-ninja"></i> Биография</a></li>
                     <li><a href="#sharingan"><i class="fas fa-eye"></i> Шаринган</a></li>
@@ -38,9 +37,15 @@
                     <li><a href="#contact"><i class="fas fa-crow"></i> Ворон</a></li>
                 </ul>
             </nav>
+            <!-- Мобильная навигация (скрыта) -->
+            <div class="mobile-nav">
+                <div class="scroll-indicator">
+                    <i class="fas fa-chevron-down"></i>
+                    <span>Листайте вниз</span>
+                </div>
+            </div>
         </div>
     </header>
-
 
     <main>
         <section id="home" class="hero">
@@ -282,6 +287,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
