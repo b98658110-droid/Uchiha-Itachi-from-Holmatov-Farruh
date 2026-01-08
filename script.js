@@ -203,12 +203,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const burger = document.getElementById("burger");
     const navMenu = document.getElementById("nav-menu");
-    
-    burger.addEventListener("pointerdown", () => {
+        
+    burger.addEventListener("click", () => {
         navMenu.classList.toggle("active");
     });
 
-
-
 });
 
+const burger = document.getElementById("burger");
+const navMenu = document.getElementById("nav-menu");
+
+burger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+    burger.classList.toggle("open");
+});
