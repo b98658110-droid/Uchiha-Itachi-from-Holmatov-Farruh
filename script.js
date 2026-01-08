@@ -42,57 +42,15 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    /* ===== БУРГЕР МЕНЮ - ОБНОВЛЁННЫЙ КОД ===== */
-    const burger = document.getElementById('burger');
-    const navMenu = document.getElementById('nav-menu');
-
-    if (burger && navMenu) {
-        // ТОЛЬКО клик открывает/закрывает меню
-        burger.addEventListener('click', (e) => {
-            e.stopPropagation(); // Предотвращаем всплытие
-            const isOpen = navMenu.classList.toggle('active');
-            burger.classList.toggle('open');
-            document.body.style.overflow = isOpen ? 'hidden' : '';
-        });
-
-        // Закрытие меню при клике на ссылку
-        document.querySelectorAll('nav a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                burger.classList.remove('open');
-                document.body.style.overflow = '';
-            });
-        });
-
-        // Закрытие меню при клике вне меню
-        document.addEventListener('click', (e) => {
-            if (navMenu.classList.contains('active') && 
-                !navMenu.contains(e.target) && 
-                !burger.contains(e.target)) {
-                navMenu.classList.remove('active');
-                burger.classList.remove('open');
-                document.body.style.overflow = '';
-            }
-        });
-
-        // Предотвращаем скролл свайпом вправо/влево для меню
-        document.addEventListener('touchstart', (e) => {
-            if (navMenu.classList.contains('active')) {
-                e.preventDefault();
-            }
-        }, { passive: false });
-    }
-
     /* ===== ПЛАВНАЯ ПРОКРУТКА ===== */
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
             
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
+                e.preventDefault();
                 window.scrollTo({
                     top: targetElement.offsetTop - 80,
                     behavior: 'smooth'
