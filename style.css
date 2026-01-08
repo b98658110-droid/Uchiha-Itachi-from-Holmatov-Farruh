@@ -1026,13 +1026,13 @@ body {
     background: none;
     border: none;
     cursor: pointer;
-
-    position: absolute;
+    padding: 10px;
+    position: fixed; /* Изменено на fixed */
     right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-
+    top: 25px; /* Фиксированная позиция сверху */
+    transform: none; /* Убрали transform */
     z-index: 1100;
+    transition: opacity 0.3s ease;
 }
 
 .burger span {
@@ -1043,28 +1043,30 @@ body {
     transition: 0.3s;
 }
 
+/* Показываем бургер только на мобильных */
+@media (max-width: 1024px) {
+    .burger {
+        display: flex;
+    }
+}
+
 /* ===== МОБИЛКА И ПЛАНШЕТ ===== */
 @media (max-width: 1024px) {
-
     nav ul {
         position: fixed;
         top: 0;
         right: 0;
-
         width: 260px;
         height: 100vh;
         background: rgba(10, 10, 10, 0.98);
-
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 25px;
-
         transform: translateX(110%);
         visibility: hidden;
         pointer-events: none;
-
         transition: transform 0.35s ease, visibility 0s linear 0.35s;
         z-index: 1050;
         border-left: 3px solid var(--blood-red);
@@ -1074,11 +1076,9 @@ body {
         transform: translateX(0);
         visibility: visible;
         pointer-events: auto;
-
         transition: transform 0.35s ease;
     }
 }
-
 
 /* ===== АНИМАЦИЯ БУРГЕРА ===== */
 .burger.open span:nth-child(1) {
@@ -1092,6 +1092,3 @@ body {
 .burger.open span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -7px);
 }
-
- 
-
