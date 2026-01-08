@@ -1086,3 +1086,132 @@ body {
         margin-right: 6px;
     }
 }
+
+/* Навигация - скрыть на мобильных и планшетах */
+.desktop-nav {
+    display: block;
+}
+
+.mobile-nav {
+    display: none;
+}
+
+.scroll-indicator {
+    text-align: center;
+    padding: 10px;
+    color: var(--blood-red);
+    animation: bounce 2s infinite;
+}
+
+.scroll-indicator i {
+    display: block;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-10px);}
+    60% {transform: translateY(-5px);}
+}
+
+/* Скрыть навигацию на мобильных и планшетах */
+@media (max-width: 1024px) {
+    .desktop-nav {
+        display: none !important;
+    }
+    
+    .mobile-nav {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+        border-top: 1px solid rgba(139, 0, 0, 0.3);
+    }
+    
+    /* Уменьшаем логотип на мобильных */
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+    
+    .sharingan-icon {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* На десктопе показываем обычную навигацию */
+@media (min-width: 1025px) {
+    .desktop-nav {
+        display: block;
+    }
+    
+    nav ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+        padding: 10px 0;
+        border-top: 1px solid rgba(139, 0, 0, 0.3);
+    }
+    
+    nav li {
+        margin: 0 15px;
+    }
+    
+    nav a {
+        color: var(--white);
+        text-decoration: none;
+        font-weight: bold;
+        padding: 10px 15px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        font-size: 1.1rem;
+    }
+    
+    nav a i {
+        margin-right: 8px;
+        font-size: 1.2rem;
+    }
+    
+    nav a:hover, nav a.active {
+        background-color: var(--blood-red);
+        color: var(--white);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(139, 0, 0, 0.4);
+    }
+}
+
+/* Альтернативный вариант: мини-индикатор разделов для мобильных */
+.section-indicator {
+    position: fixed;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: none;
+}
+
+@media (max-width: 1024px) {
+    .section-indicator {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .indicator-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: rgba(139, 0, 0, 0.3);
+        border: 2px solid var(--blood-red);
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .indicator-dot.active {
+        background-color: var(--blood-red);
+        transform: scale(1.3);
+    }
+}
+
