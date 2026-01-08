@@ -3,12 +3,14 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('Сайт Итачи Учиха загружен!');
 
     /* ===== АНИМАЦИЯ ПОЯВЛЕНИЯ ===== */
-    const elements = document.querySelectorAll('.type, .jutsu, .ability, .gallery-item');
+    const elements = document.querySelectorAll(
+        '.type, .jutsu, .ability, .gallery-item'
+    );
 
     elements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
-        el.style.transition = '0.6s ease';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     });
 
     const animateOnScroll = () => {
@@ -33,40 +35,49 @@ document.addEventListener('DOMContentLoaded', function () {
         setTimeout(() => blood.remove(), 1000);
     };
 
-    document.querySelectorAll('.btn, .image-frame, .gallery-item, .sharingan-display')
-        .forEach(el => {
-            el.addEventListener('click', e => {
-                createBloodEffect(e.clientX, e.clientY);
-            });
+    document.querySelectorAll(
+        '.btn, .image-frame, .gallery-item, .sharingan-display'
+    ).forEach(el => {
+        el.addEventListener('click', e => {
+            createBloodEffect(e.clientX, e.clientY);
         });
+    });
 
     /* ===== БУРГЕР МЕНЮ ===== */
-    const burger = document.getElementById("burger");
-    const navMenu = document.getElementById("nav-menu");
+    const burger = document.getElementById('burger');
+    const navMenu = document.getElementById('nav-menu');
 
     if (burger && navMenu) {
-        burger.addEventListener("click", () => {
-            navMenu.classList.toggle("active");
-            burger.classList.toggle("open");
+        burger.addEventListener('click', () => {
+            const isOpen = navMenu.classList.toggle('active');
+            burger.classList.toggle('open');
+
+            // 🔒 Блокируем скролл страницы
+            document.body.style.overflow = isOpen ? 'hidden' : '';
         });
     }
 
     /* ===== ПЛАВНАЯ ПРОКРУТКА + ЗАКРЫТИЕ МЕНЮ ===== */
     document.querySelectorAll('nav a').forEach(link => {
         link.addEventListener('click', e => {
-            e.preventDefault();
+
             const id = link.getAttribute('href');
+            if (!id || !id.startsWith('#')) return;
+
+            e.preventDefault();
+
             const target = document.querySelector(id);
+            if (!target) return;
 
-            if (target) {
-                window.scrollTo({
-                    top: target.offsetTop - 80,
-                    behavior: 'smooth'
-                });
+            window.scrollTo({
+                top: target.offsetTop - 80,
+                behavior: 'smooth'
+            });
 
-                navMenu.classList.remove("active");
-                burger.classList.remove("open");
-            }
+            // ❌ Закрываем меню
+            navMenu.classList.remove('active');
+            burger.classList.remove('open');
+            document.body.style.overflow = '';
         });
     });
 
