@@ -1039,53 +1039,41 @@ body {
     transition: 0.3s;
 }
 
-/* ===== МОБИЛКА / ПЛАНШЕТ ===== */
-@media (max-width: 768px) {
-    .burger {
-        display: flex;
-    }
-
-    nav ul {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background: rgba(10, 10, 10, 0.97);
-        flex-direction: column;
-        align-items: center;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.4s ease;
-        border-top: 3px solid var(--blood-red);
-    }
-
-    nav ul.active {
-        max-height: 500px;
-    }
-
-    nav li {
-        margin: 15px 0;
-    }
+/* ===== БУРГЕР ===== */
+.burger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1100;
 }
 
-/* ===== ПЛАНШЕТ И МЕНЬШЕ (ТОЛЬКО БУРГЕР) ===== */
+.burger span {
+    width: 30px;
+    height: 3px;
+    background: var(--blood-red);
+    border-radius: 2px;
+    transition: 0.3s;
+}
+
+/* ===== МОБИЛКА И ПЛАНШЕТ ===== */
 @media (max-width: 1024px) {
 
-    /* Прячем стандартную навигацию */
+    /* nav НЕ прячем */
     nav {
-        display: none;
+        display: block;
     }
 
-    /* Показываем бургер */
     .burger {
         display: flex;
-        position: absolute;
-        right: 25px;
-        top: 50%;
-        transform: translateY(-50%);
     }
 
-    /* Выезжающее меню */
     nav ul {
         position: fixed;
         top: 0;
@@ -1106,10 +1094,28 @@ body {
         right: 0;
     }
 
+    nav li {
+        margin: 0;
+    }
+
     nav a {
         font-size: 1.3rem;
     }
 }
+
+/* ===== АНИМАЦИЯ БУРГЕРА ===== */
+.burger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.burger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
 
 .burger.open span:nth-child(1) {
     transform: rotate(45deg) translate(6px, 6px);
